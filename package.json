@@ -1,0 +1,19 @@
+{
+  "name": "restapi_bestpractices",
+  "version": "1.0.0",
+  "description": "First RestAPI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.14.9"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
