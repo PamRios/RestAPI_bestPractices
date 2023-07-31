@@ -25,20 +25,27 @@ const connectToDatabase = async () => {
 };
 
 //
-const sampleAccount = {
-    account_holder: "Linus Torvalds",
-    account_id: "MDB829001337",
-    account_type: "checking",
-    balance: 50352434,
-    last_updated: new Date(),
-}
-
+const sampleAccount = [
+    {
+        account_id: "MDB011235813",
+        account_holder: "Ada Lovelace",
+        account_type: "checking",
+        balance: 60218,
+    },
+    {
+        account_id: "MDB829000001",
+        account_holder: "Muhammad ibn Musa al-Khwarizmi",
+        account_type: "saving",
+        balance: 267914296,
+    }
+]
 // Establishes a connection to the database using the MongoClient instance
 const main = async () => {
     try{
         await connectToDatabase();
-        let result = await accountCollection.insertOne(sampleAccount)
-        console.log(`Inserted document: ${result.insertedId}`)
+        let result = await accountCollection.insertMany(sampleAccount)
+        console.log(`Inserted ${result.insertedCount} documents`)
+        console.log(result)
     } catch(err){
         console.error(`Error connecting to tha database ${dbname} ❌`);
     } finally {
